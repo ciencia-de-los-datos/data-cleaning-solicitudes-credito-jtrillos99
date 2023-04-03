@@ -31,6 +31,7 @@ def clean_data():
     df['línea_credito'] = df['línea_credito'].str.replace('-',' ').str.replace('_',' ').str.strip()
     
     #Reemplazos de valores especificos
+    
     df['monto_del_credito'] = df['monto_del_credito'].str.replace(',','').str.replace('$','',regex=False).str.replace(' ','').str.strip().astype(float)
    
     #df['línea_credito'] = df['línea_credito'].str.replace('[^a-zA-Z0-9 \n\.]', ' ',regex=True)
