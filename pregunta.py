@@ -13,7 +13,7 @@ def clean_data():
     df = pd.read_csv("solicitudes_credito.csv", sep=";", index_col=0)
     
     df.reset_index(inplace=True, drop=True)
-    df['fecha_de_beneficio'] = pd.to_datetime(df['fecha_de_beneficio'],dayfirst=True)
+    df['fecha_de_beneficio'] = pd.to_datetime(df['fecha_de_beneficio'],dayfirst=True, errors='coerce') 
 
     df.dropna(axis="index",inplace=True)
     df.drop_duplicates(inplace=True)
@@ -53,7 +53,7 @@ def clean_data():
     #print(df.línea_credito.value_counts())
 
     #df.to_excel("solicitudes_credito_clean.xlsx", index=False)
-   
+    
 
     return df
 
